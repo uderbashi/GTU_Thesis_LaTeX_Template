@@ -1,0 +1,162 @@
+\ProvidesPackage{GTUThesis}%2021/08 V0.1, Usama Derbashi
+\RequirePackage{{pgffor,etoolbox}}%foreach, notblank
+\RequirePackage{array}%table(m)
+\RequirePackage{titlesec}%titleformat
+\RequirePackage{fancyhdr}%fancyfoot
+
+\newcommand*{\faculty}[1]{\gdef\@faculty{#1}%
+}
+\newcommand*{\@faculty}{FACULTY OF ENGINEERING}
+
+\newcommand*{\department}[1]{\gdef\@department{#1}%
+}
+\newcommand*{\@department}{COMPUTER ENGINEERING DEPARTMENT}
+
+\newcommand*{\project}[1]{\gdef\@project{#1}%
+}
+\newcommand*{\@project}{Final Thesis}
+
+\newcommand*{\theyear}[1]{\gdef\@theyear{#1}%
+}
+\newcommand*{\@theyear}{\the\year{}}
+
+\newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}%
+}
+\newcommand*{\@supervisor}{\texttt{\string \supervisor} currently
+not set. Please fix this.}
+
+\renewcommand{\footnoterule}{%
+  \hrule width \textwidth%
+}
+
+\newenvironment{outertitles}{%
+    \titleformat{\chapter}[hang]{\normalfont\bfseries\centering}{}{0pt}{\LARGE\MakeUppercase}%
+    \titleformat{\section}[hang]{\normalfont\bfseries}{}{0pt}{\Large}%
+    \titlespacing*{\chapter}{0pt}{0pt}{24pt}%
+}{}
+
+\renewenvironment{quote}{%
+\it``}{"}
+
+\renewcommand*{\maketitle}{%
+    \begin{titlepage}
+    {\setlength{\parindent}{0cm} %suppresses indentation
+        \begin{center}
+        
+        \null
+        \vfill   
+        {\bf\large\MakeUppercase{
+            REPUBLIC OF TURKEY\\
+            GEBZE TECHNICAL UNIVERSITY\\
+            \@faculty\\
+        }}
+        \vfill
+        
+        {\bf\large\MakeUppercase{\@title\\}}
+        \vfill
+        
+        {\bf\large\MakeUppercase{
+            \@author\\
+            \@project\\
+            \@department\\
+        }}
+        \vfill
+        
+        {\bf\large\MakeUppercase{
+            \@theyear\\
+            GEBZE
+        }}
+        \vfill
+        
+        \end{center}
+    }
+    \end{titlepage}
+
+    \begin{titlepage}
+    {\setlength{\parindent}{0cm} %suppresses indentation
+    	\begin{center}
+    	\null
+    	\vfill
+        {\bf\Large\MakeUppercase{
+            REPUBLIC OF TURKEY\\
+            GEBZE TECHNICAL UNIVERSITY\\
+            \@faculty\\
+        }}
+        \vfill
+        
+        {\bf\LARGE\MakeUppercase{\@title\\}}
+        \vfill
+        {\bf\Large\MakeUppercase{
+            \@author\\
+            \@project\\
+            \@department\\
+        }}
+        \vfill
+        
+        {\Large\MakeUppercase{
+            supervised by:\\
+            \@supervisor
+        }}
+        \vfill
+        
+        {\bf\Large\MakeUppercase{
+            \@theyear\\
+            GEBZE
+        }}
+        \vfill
+        
+        \end{center}
+    }
+    \end{titlepage}
+}
+
+\newcommand*{\makejury}[4]{%decree, date of decree, date of defence, comma separated jury without supervisor
+    % leave the first two arguments empty in case you don't have a decree
+    \thispagestyle{empty}
+    \begin{center}
+        \begin{tabular}{|m{6.75cm}|>{\centering\arraybackslash}m{6.75cm}|}
+            \hline
+            \vspace{1mm}\includegraphics[width=0.45\textwidth]{gtu_logo.jpg} & \MakeUppercase{\@project\ jury approval form}\\
+            \hline
+        \end{tabular}
+    \end{center}
+    
+    \ifstrempty{#1}{%
+        The thesis of \@author\, was accepted on {#3} by the jury as \@project\ in the field of \MakeLowercase{\@department{}}.
+    }{%
+        The thesis of \@author\, which was defended on {#3} in front of the jury formed by the decision of the board of Gebze Technical University, \@faculty\ number {#1} dated {#2}, was accepted as \@project\ in the field of \MakeLowercase{\@department{}}.
+    }
+    
+    \begin{center}
+        \bf JURY
+    \end{center}
+    
+    % Create jury table content
+    % unfortunately foreach doesn't work inside tabular environment
+    \newcommand*\jurytablecontents{} 
+    \foreach \entry in {#4}{
+        \xappto\jurytablecontents{Member&:& \entry \\\\}
+    }
+    
+    \begin{tabular}{lcl}
+        Member\\(Supervisor)&:&  \@supervisor\\\\
+        \jurytablecontents{}
+    \end{tabular}
+    
+    \vfill
+    \ifstrempty{#1}{}{%
+    \begin{center}
+        \bf APPROVAL
+    \end{center}
+    The decision of the board of Gebze Technical University, \@faculty\ number {#1} dated {#2}.
+    
+    \begin{center}
+        Signature/Stamp
+    \end{center}
+    }
+    
+    \clearpage
+}
+
+
+\endinput
