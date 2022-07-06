@@ -1,9 +1,19 @@
-\chapter*{List of Symbols and Abbreviations}
-\addcontentsline{toc}{chapter}{List of Symbols and Abbreviations}
+\ifbool{isEN}{%
+    \chapter*{List of Symbols and Abbreviations}
+    \addcontentsline{toc}{chapter}{List of Symbols and Abbreviations}
+}{
+    \chapter*{Simgeler ve Kısaltmalar Dizini}
+    \addcontentsline{toc}{chapter}{Simgeler ve Kısaltmalar Dizini}
+}
 
 \begin{tabular}{lcl}
-    \textbf{Symbol or}&&\\
-    \textbf{Abbreviation} &:& \textbf{Explanation}\\
+    \ifbool{isEN}{%
+        \underline{\textbf{Symbol or}}&&\\
+        \underline{\textbf{Abbreviation}} &:& \underline{\textbf{Explanation}}\\
+    }{
+        \underline{\textbf{Simgeler ve}}&&\\
+        \underline{\textbf{Kısaltmalar}} &:& \underline{\textbf{Açıklamalar}}\\
+    }
     
     %% Edit below in the format
     %% XYZ &:& EXPLANATION\\
