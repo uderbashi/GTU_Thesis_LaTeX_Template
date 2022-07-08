@@ -8,7 +8,7 @@
 	- [Project Structure](#project-structure)
 	- [Backmatter and Frontmatter](#backmatter-and-frontmatter)
 	- [Mainmatter](#mainmatter)
-	- [Imgs and refs.bib](#imgs-and-refs.bib)
+	- [Imgs and refs.bib](#imgs-and-refsbib)
 	- [GTUThesis.cls](#gtuthesiscls)
 	- [main.tex](#maintex)
 	- [Important Note](#important-note)
@@ -77,19 +77,20 @@ or write their thesis in the way they see fitting.
 ### Important Note
 
 ***DO NOT*** delete, rename, or move the following files or directories because their paths are hard-coded:
-	- `./Body`
-	- `./Body/Backmatter`
-	- `./Body/Backmatter/Appendices.tex`
-	- `./Body/Backmatter/CV.tex`
-	- `./Body/Frontmatter`
-	- `./Body/Frontmatter/Abstract.tex`
-	- `./Body/Frontmatter/Acknowledgement.tex`
-	- `./Body/Frontmatter/ListOfAcro.tex`
-	- `./Body/Frontmatter/Ozet.tex`
-	- `./Imgs`
-	- `./Imgs/gtu_logo.jpg`
-	- `./GTUThesis.cls`
-	- `./refs.bib`
+
+- `./Body`
+- `./Body/Backmatter`
+- `./Body/Backmatter/Appendices.tex`
+- `./Body/Backmatter/CV.tex`
+- `./Body/Frontmatter`
+- `./Body/Frontmatter/Abstract.tex`
+- `./Body/Frontmatter/Acknowledgement.tex`
+- `./Body/Frontmatter/ListOfAcro.tex`
+- `./Body/Frontmatter/Ozet.tex`
+- `./Imgs`
+- `./Imgs/gtu_logo.jpg`
+- `./GTUThesis.cls`
+- `./refs.bib`
 
 
 ## GTUThesis Class
