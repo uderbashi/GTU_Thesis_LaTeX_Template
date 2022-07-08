@@ -56,7 +56,7 @@ The `./Body/Mainmatter` directory is to house the `.tex` files of the main body 
 
 ### Imgs and refs.bib
 
-As mentioned in the structure, the `./Imgs` is a directory to house the images to be used in the figures of the thesis. The files in the directory could be further organised into subdirectories, but the file `./Imgs/gtu_logo.jpg` to stay in its place.
+As mentioned in the structure, `./Imgs` is a directory to house the images to be used in the figures of the thesis. The files in the directory could be further organised into subdirectories, but the file `./Imgs/gtu_logo.jpg` to stay in its place.
 
 As for `refs.bib`, this is a BibTeX file to be filled in with the references to be used for the thesis. (copied from the publisher or scholar.google.com)
 
@@ -95,7 +95,7 @@ or write their thesis in the way they see fitting.
 
 ## GTUThesis Class
 
-The [GTUThesis.cls](#gtuthesiscls) is the star of the show here, where the style of the thesis of GTU is defined. The user is expected to use some functions, and the demo `main.tex` shows how it is used. But for the sake of completion,  here is the documentation for the functions which the user is expected to call in their main.
+[GTUThesis.cls](#gtuthesiscls) is the star of the show here, where the style of the thesis of GTU is defined. The user is expected to use some functions, and the demo `main.tex` shows how it is used. But for the sake of completion,  here is the documentation for the functions which the user is expected to call in their main.
 
 ### Declare Class
 
@@ -105,7 +105,7 @@ The `lang` and `degree` options are set to set the language of the thesis (inclu
 
 ### GTU Fields
 
-These are the fields required to be filled in at the beggining of the documents, they all take one argument in the following matter
+These are the fields required to be filled in at the beginning of the documents, they all take one argument in the following matter
 
 	\GTUField{argument}
 
