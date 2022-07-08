@@ -1,59 +1,75 @@
-\chapter{B Chapter}
+\chapter{GTUThesis Class} \label{ch:class}
 
-\lipsum[1] \ref{fig:frogger}\ref{fig:froggerr}.
+\texttt{GTUThesis.cls} (see \Cref{sec:cls}) is the star of the show here, where the style of the thesis of GTU is defined. The user is expected to use some functions, and the demo \texttt{main.tex} shows how it is used. But for the sake of completion,  here is the documentation for the functions which the user is expected to call in their main.
 
-\begin{figure}
-    \centering
-    \caption{\label{fig:frogger}Another instance of the frog.}
-    \includegraphics[width=0.3\textwidth]{frog.jpg}
-\end{figure}
-\begin{figure}
-    \centering
-    \caption{\label{fig:froggerr}And a third one.}
-    \includegraphics[width=0.3\textwidth]{frog.jpg}
-\end{figure}
+\section{Declare Class}\label{sec:declare}
 
-\section{A Section}
+	\texttt{~~~~\textbackslash documentclass[lang,degree]\{GTUThesis\}}
 
-\lipsum[2]
+The \texttt{lang} and \texttt{degree} options are set to set the language of the thesis (including titles and predefined text), and the degree which mainly changes some slight things in the Frontmatter. \texttt{lang} can take either \texttt{en} or \texttt{tr} with the former being the default, and \texttt{degree} takes either \texttt{undergrad} or \texttt{graduate} with the latter being the default.
 
-\section{B Section}
+\section{GTU Fields}
 
-\subsection{A Subsection}
-\lipsum[3]
-\subsubsection{A Subsubsection}
-\lipsum[4]
-\subsection{B subsection}
-\lipsum[5]
+These are the fields required to be filled in at the beginning of the documents, they all take one argument in the following matter
 
-\section{C Section}
-\lipsum[6-8] \ref{tab:widgetss} \cite{One, Two, Three}.
+	\texttt{~~~~\textbackslash GTUField\{argument\}}
+
+and they are the following.
 
 \begin{table}
+    \caption{GTU-fields and their arguments}
+    \label{tab:fields}
     \centering
-    \caption{\label{tab:widgetss}An example table.}
-    \begin{tabular}{l|r}
-        Item & Quantity \\\hline
-        Widgets & 42 \\
-        Gadgets & 13
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{GTU Field} & \textbf{Taken Argument} \\
+        \hline
+        GTUAuthor & Name of the author of the thesis (student)\\
+        GTUTitle & The title of the thesis\\
+        GTUFaculty & The faculty or institute of the author\\
+        GTUDepartment & The department of the author\\
+        GTUProject & The project the author is working on (ex. PhD thesis)\\
+        GTUSupervisor & Name of the supervisor\\
+        GTUYear & The year of the publication of the thesis\\
+        GTUJury & Names of the jury for the thesis (comma separated) \\
+        GTUDefenceDate & The date when the author presents the project to the jury\\
+        GTUDecreeNo & The decree number of the jury formation (only graduate)\\
+        GTUDecreeDate & The above decree's date (only graduate)\\
+        \hline
     \end{tabular}
 \end{table}
 
-\begin{enumerate}
-\item first,
-\item second.
-\end{enumerate}
-\dots and bullet points \dots
-\begin{itemize}
-\item one bullet,
-\item two bullets.
-\end{itemize}
+
+\section{GTU Make}
+
+These are two functions which produce the front-matter and the back-matter of the thesis.
+
+	\texttt{\textbackslash GTUMakeFront}
+
+The function above produces the front-matter including the cover, the lists of content, figures, tables, and acronyms etc. in the correct order and in the correct format for the declared class's arguments (see \Cref{sec:declare} for more).
+
+	\texttt{\textbackslash GTUMakeBack\{arg\}}
+
+The function above produces the back-matter including the bibliography, and the optional CV and appendices. \texttt{arg} is a string that takes in the optional sections which the user wants to add comma separated (\texttt{cv} for the CV and \texttt{ap} for the appendices). If the user still doesn't want any optional sections, they still have to add the empty \texttt{\{\}} since the function waits for an argument which can be an empty string. So, the valid uses of the function are 
+
+	\texttt{\textbackslash GTUMakeBack\{\} \% for only bibliography}
+	
+	\texttt{\textbackslash GTUMakeBack\{cv\} \% for bibliography and CV}
+	
+	\texttt{\textbackslash GTUMakeBack\{ap\} \% for bibliography and appendices}
+	
+	\texttt{\textbackslash GTUMakeBack\{cv,ap\} \% for bibliography, CV, and appendices}
+
+\section{A Section to catch some other things}
+
 
 Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i\]
+\begin{equation}
+    S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+\end{equation}
 denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
 
 \begin{quote}
-    \lipsum[10]
+    \lipsum[10] \footnote{The text in this quote was created with \texttt{lipsum} package}
 \end{quote}
